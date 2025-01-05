@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Functions - DynamicGui Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">DynamicGui Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Basics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../anatomy/" class="nav-link">GUI Anatomy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Functions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../macros/" class="nav-link">Macros</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../anatomy/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../macros/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#introduction-to-functions" class="nav-link">Introduction to Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#function-anatomy" class="nav-link">Function Anatomy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#list-of-functions" class="nav-link">List of Functions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#navigation-and-gui-management" class="nav-link">Navigation and GUI Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#player-and-entity-management" class="nav-link">Player and Entity Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cooldown-and-timing" class="nav-link">Cooldown and Timing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#game-rule-and-environment" class="nav-link">Game Rule and Environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#logging-and-messaging" class="nav-link">Logging and Messaging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#inventory-and-item-management" class="nav-link">Inventory and Item Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#permission-management" class="nav-link">Permission Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#game-mechanics" class="nav-link">Game Mechanics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#economy-functions" class="nav-link">Economy Functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#miscellaneous" class="nav-link">Miscellaneous</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="introduction-to-functions">Introduction to Functions</h1>
+<p>Functions are the fundamental building blocks of DynamicGui and are an essential part to what makes DynamicGui truly dynamic. Function sections can be written to be as simple or complex to suit your needs. To understand the different functions and their syntax, we must first understand their base principle.</p>
+<blockquote>
+<p><em>Note: The function name when used within the required syntax is not case-sensitive. For example, you could type the function <code>'CopyBackMetadata</code> alternatively as: <code>copybackmetadata</code>, <code>COPYBACKMETADATA</code>, or even <code>cOPYbACKmETAdATA</code>. The function names were written in this documentation to improve readability.</em></p>
+</blockquote>
+<h3 id="_1"></h3>
+<h2 id="function-anatomy">Function Anatomy</h2>
+<p>Functions can be used for either Top-Level or Slot-Level behavior but the result is similar in nature.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Function Properties</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Function Headers</td>
+<td style="text-align: left;">Function Headers are a required function property, but are essential to sectioning certain functions. An added benefit is that these Function Headers can be named whatever you want. It is best to keep these descriptive as they will help aid in potential troubleshooting or updating.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Types</td>
+<td style="text-align: left;">Types are the different function types to determine how the GUI is desired to behave. You can have either a single type in the form of a string, or, you can have types in the form of a list. These are the different available types: <code>switch_menu</code> <code>load</code> <code>click</code> <code>left</code> <code>right</code> <code>middle</code> <code>shift_click</code> <code>shift_left</code> <code>shift_right</code> <code>fail</code> <code>exit_menu</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Functions</td>
+<td style="text-align: left;">This is where you will place your functions. You can have either a single function in the form of a string, or, you can have functions in the form of a list.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fail-On</td>
+<td style="text-align: left;">The specified function where its condition was not expected or met. Whenever you need a function to occur based on a condition not expected, you will need to use the <code>fail</code> type.</td>
+</tr>
+</tbody>
+</table>
+<p>Example of Top-Level functions:</p>
+<pre><code class="language-yaml">functions:
+  broadcast-load: #This is a Function Header.
+    type: &quot;load&quot; #This is a type, using the 'load' type. 
+    functions:
+    - 'HasPermission: essentials.broadcast' #This is a list function.
+  broadcast-click: #This can be named anything but it should be descriptive
+    type: #This is a type, using the 'left' and 'right' types in the form of a list function.
+    - &quot;left&quot;
+    - &quot;right&quot;
+    functions:
+    - 'Broadcast: This is an important broadcast.' #This is a list function.
+    function-failure-permission: #This is also a Function Header
+      fail-on: &quot;fail&quot; #This is the fail type.
+      functions: &quot;Pmsg: Insufficient permission.&quot; #This is a string function.
+</code></pre>
+<p>Example of Slot-Level functions:</p>
+<pre><code class="language-yaml">'13':
+  icon: paper
+  name: &quot;tutorial&quot;
+  functions:
+    loader: #This is a Function Header.
+      type: &quot;load&quot; #This is a type, using the 'load' type in the form of a string function.
+      functions: #This is a list function.
+      - 'permission: tutorial'
+      - 'setlore: &amp;cUNLOCKED'
+      function-fail-permission: #This is also a Function Header
+        fail-on: 'permission: tutorial' #This is a function in which its condition was not met, while also utilizing a string function.
+        type: &quot;fail&quot; #This is a type, using the 'fail' type.
+        functions: &quot;setlore: &amp;cLOCKED&quot; #This is a function.
+    clicker: #This is a Function Header.
+      fail-on:
+      - 'permission: tutorial' #This is a function in which its condition was not met, while also utilizing a list function.
+      type: &quot;click&quot; #This is a type, using the 'click' type in the form of a string function.
+      functions: #This is a list function.
+      - 'pmsg: Insufficient permission.'
+      - 'sound: ENTITY_BLAZE_HURT,1.0,2.0'
+</code></pre>
+<h3 id="_2"></h3>
+<h1 id="list-of-functions">List of Functions</h1>
+<blockquote>
+<h2 id="navigation-and-gui-management"><strong>Navigation and GUI Management</strong></h2>
+<blockquote>
+<h3 id="back"><strong>Back</strong></h3>
+<p>Navigate back to a previous state or location with a GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'Back'</code></p>
+<p>Example:</p>
+<p><code>- 'Back'</code></p>
+</blockquote>
+<h3 id="_3"></h3>
+<blockquote>
+<h3 id="hasback"><strong>HasBack</strong></h3>
+<p>Checks if navigation history ('Back' functionality) is available.</p>
+<p>Syntax:</p>
+<p><code>- 'HasBack'</code></p>
+<p>Example:</p>
+<p><code>- 'HasBack'</code></p>
+</blockquote>
+<h3 id="_4"></h3>
+<blockquote>
+<h3 id="setback"><strong>SetBack</strong></h3>
+<p>Sets a designated back location or state within a GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'SetBack: &lt;boolean result&gt;'</code></p>
+<p>Examples:</p>
+<p><code>- 'SetBack: true'</code></p>
+</blockquote>
+<h3 id="_5"></h3>
+<blockquote>
+<h3 id="gui"><strong>Gui</strong></h3>
+<p>Open a specified GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'Gui: &lt;name of gui&gt;.yml'</code></p>
+<p>Example:</p>
+<p><code>- 'Gui: cosmetics.yml'</code></p>
+</blockquote>
+<h3 id="_6"></h3>
+<blockquote>
+<h3 id="refreshgui"><strong>RefreshGUI</strong></h3>
+<p>Update or refresh the contents of the GUI currently being viewed.</p>
+<p>Syntax:</p>
+<p><code>- 'RefreshGui'</code></p>
+<p>Example:</p>
+<p><code>- 'RefreshGui'</code></p>
+</blockquote>
+<h3 id="_7"></h3>
+<blockquote>
+<h3 id="refreshslot"><strong>RefreshSlot</strong></h3>
+<p>Update or refresh the contents of a specific slot within the GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'RefreshSlot: &lt;Slot # (Range: 0-53)&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'RefreshSlot: 31'</code></p>
+</blockquote>
+<h3 id="_8"></h3>
+<blockquote>
+<h3 id="hasmetadata"><strong>HasMetadata</strong></h3>
+<p>Checks if metadata is set.</p>
+<p>Syntax:</p>
+<p><code>- 'HasMetadata'</code></p>
+<p>Example:</p>
+<p><code>- 'HasMetadata'</code></p>
+</blockquote>
+<h3 id="_9"></h3>
+<blockquote>
+<h3 id="copybackmetadata"><strong>CopyBackMetadata</strong></h3>
+<p>Copies metadata associated with navigation history.</p>
+<p>Syntax:</p>
+<p><code>- 'CopyBackMetadata: true'</code></p>
+<p>Example:</p>
+<p><code>- 'CopyBackMetadata: true'</code></p>
+</blockquote>
+<h3 id="_10"></h3>
+<blockquote>
+<h3 id="isguimetadataset"><strong>IsGuiMetadataSet</strong></h3>
+<p>Checks if specific GUI metadata is set.</p>
+<p>Syntax:</p>
+<p><code>- 'IsGuiMetadataSet: &lt;user defined metadata&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'IsGUIMetadataSet: %metadata_custom%'</code></p>
+</blockquote>
+<h3 id="_11"></h3>
+<blockquote>
+<h3 id="setmetadata"><strong>SetMetadata</strong></h3>
+<p>Sets metadata for a specific entity or block.</p>
+<p>Syntax:</p>
+<p><code>- 'SetMetadata: &lt;entity&gt;,&lt;metadata string you want to set&gt;,&lt;metadata you want to use&gt;'</code></p>
+<p>Examples:</p>
+<p><code>- 'SetMetadata: gui,preset_value,300'</code>
+<code>- 'SetMetadata: gui,preset_value,%defined_macro-metadata_price1%'</code></p>
+</blockquote>
+<h3 id="_12"></h3>
+<blockquote>
+<h3 id="checkmovable"><strong>CheckMovable</strong></h3>
+<p>Checks if an entity or block is movable.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+</blockquote>
+<h3 id="_13"></h3>
+<blockquote>
+<h2 id="player-and-entity-management"><strong>Player and Entity Management</strong></h2>
+<blockquote>
+<h3 id="asyncrunning"><strong>AsyncRunning</strong></h3>
+<p>Checks if an asynchronous task is currently running.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_14"></h3>
+<blockquote>
+<h3 id="checkitemtypeinhand"><strong>CheckItemTypeInHand</strong></h3>
+<p>Checks the type of item currently held by the player.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_15"></h3>
+<blockquote>
+<h3 id="checklevel"><strong>CheckLevel</strong></h3>
+<p>Verifies if a specified level meets a certain criteria.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_16"></h3>
+<blockquote>
+<h3 id="checkplayerworld"><strong>CheckPlayerWorld</strong></h3>
+<p>Determines the world in which a player is located.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_17"></h3>
+<blockquote>
+<h3 id="executec"><strong>Executec</strong></h3>
+<p>Executes a command on the server.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_18"></h3>
+<blockquote>
+<h3 id="executep"><strong>Executep</strong></h3>
+<p>Executes a command as if a player had typed it.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_19"></h3>
+<blockquote>
+<h3 id="isbedrockplayer"><strong>IsBedrockPlayer</strong></h3>
+<p>Checks if a player is using Minecraft: Bedrock Edition.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_20"></h3>
+<blockquote>
+<h3 id="loggedin"><strong>LoggedIn</strong></h3>
+<p>Checks if a player is logged into the server.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_21"></h3>
+</blockquote>
+<h3 id="_22"></h3>
+<blockquote>
+<h2 id="cooldown-and-timing"><strong>Cooldown and Timing</strong></h2>
+<blockquote>
+<h3 id="checktick"><strong>CheckTick</strong></h3>
+<p>Retrieves the current tick (unit of time) in the game.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_23"></h3>
+<blockquote>
+<h3 id="isoncooldown"><strong>IsOnCooldown</strong></h3>
+<p>Checks if a specified action or player is currently on cooldown.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_24"></h3>
+<blockquote>
+<h3 id="setcooldown"><strong>SetCooldown</strong></h3>
+<p>Sets a cooldown for a specified action or player.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_25"></h3>
+<blockquote>
+<h3 id="delay"><strong>Delay</strong></h3>
+<p>Introduces a delay or pause in script execution.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_26"></h3>
+</blockquote>
+<h3 id="_27"></h3>
+<blockquote>
+<h2 id="game-rule-and-environment"><strong>Game Rule and Environment</strong></h2>
+<blockquote>
+<h3 id="getgamerule"><strong>GetGameRule</strong></h3>
+<p>Retrieves the value of a specific game rule in the world.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_28"></h3>
+<blockquote>
+<h3 id="setgamerule"><strong>SetGamerule</strong></h3>
+<p>Sets a specific game rule in the world.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_29"></h3>
+</blockquote>
+<h3 id="_30"></h3>
+<blockquote>
+<h2 id="logging-and-messaging"><strong>Logging and Messaging</strong></h2>
+<blockquote>
+<h3 id="log"><strong>Log</strong></h3>
+<p>Logs a message or event to the server console.</p>
+<p>Syntax:</p>
+<p><code>- 'Log: &lt;message to be displayed as a log in the console&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'Log: %player% purchased an item.'</code></p>
+</blockquote>
+<h3 id="_31"></h3>
+<blockquote>
+<h3 id="msg-or-pmsg"><strong>Msg</strong> or <strong>Pmsg</strong></h3>
+<p>Sends a message to players in the server.</p>
+<p>Syntax:</p>
+<p><code>- 'Msg: &lt;message sent to player, supports vanilla colors codes only&gt;'</code> OR <code>- 'Pmsg: &lt;message sent to player&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'Msg: Insufficient permission.'</code> OR <code>- 'Pmsg: Insufficient permission.'</code></p>
+</blockquote>
+<h3 id="_32"></h3>
+<blockquote>
+<h3 id="minimsg"><strong>MiniMsg</strong></h3>
+<p>Sends a message to the player on the server using the <a href="https://docs.advntr.dev/minimessage/format.html">minimessage</a> format.</p>
+<p>Syntax:</p>
+<p><code>- 'MiniMsg: &lt;message sent to player, supports minimessage codes only&gt;'</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_33"></h3>
+<blockquote>
+<h3 id="msgjson"><strong>MsgJson</strong></h3>
+<p>Sends a message to the player on the server using JSON format.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_34"></h3>
+<blockquote>
+<h3 id="broadcast"><strong>Broadcast</strong></h3>
+<p>Sends a message to all players in the Minecraft server.</p>
+<p>Syntax:</p>
+<p><code>- 'Bradocast: &lt;message sent to all players&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'Broadcast: An event will occur soon. Meet us at spawn! /spawn'</code></p>
+</blockquote>
+<h3 id="_35"></h3>
+<blockquote>
+<h3 id="minibroadcast"><strong>MiniBroadcast</strong></h3>
+<p>Sends a minimized message to all players in the Minecraft server.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_36"></h3>
+<blockquote>
+<h3 id="broadcastjson"><strong>BroadcastJson</strong></h3>
+<p>Sends a JSON-formatted message to all players in the Minecraft server.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+</blockquote>
+<h3 id="_37"></h3>
+<blockquote>
+<h2 id="inventory-and-item-management"><strong>Inventory and Item Management</strong></h2>
+<blockquote>
+<h3 id="openinventoryslots"><strong>OpenInventorySlots</strong></h3>
+<p>Checks if a player has an open inventory slot within their inventory. Opens additional inventory slots within a GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'OpenInventorySlots: &lt;# of slots, maximum: 36&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'OpenInventorySlots: 1'</code></p>
+</blockquote>
+<h3 id="_38"></h3>
+<blockquote>
+<h3 id="removeslot"><strong>RemoveSlot</strong></h3>
+<p>Removes an item from a specified inventory slot within the player's inventory.</p>
+<p>Syntax:</p>
+<p><code>- 'RemoveSlot: &lt;Slot #, maximum: 36&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'RemoveSlot: 1'</code></p>
+</blockquote>
+<h3 id="_39"></h3>
+<blockquote>
+<h3 id="setamount"><strong>SetAmount</strong></h3>
+<p>Sets the display quantity for an item as if it is a stack of items.</p>
+<p>Syntax:</p>
+<p><code>- 'SetAmount: &lt;Amount, maximum: 64&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'SetAmount: 32'</code></p>
+</blockquote>
+<h3 id="_40"></h3>
+<blockquote>
+<h3 id="setclose"><strong>SetClose</strong></h3>
+<p>Closes the current GUI.</p>
+<p>Syntax:</p>
+<p><code>- 'SetClose: &lt;boolean result&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'SetClose: true'</code></p>
+</blockquote>
+<h3 id="_41"></h3>
+<blockquote>
+<h3 id="setdurability"><strong>SetDurability</strong></h3>
+<p>Sets the durability of an item.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_42"></h3>
+<blockquote>
+<h3 id="setenchants"><strong>SetEnchants</strong></h3>
+<p>Enchants an item with specified enchantments.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_43"></h3>
+<blockquote>
+<h3 id="setname"><strong>SetName</strong></h3>
+<p>Sets the name of an item.</p>
+<p>Syntax:</p>
+<p><code>- 'SetName: &lt;user-defined item name&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'SetName: &amp;aCosmetics'</code></p>
+</blockquote>
+<h3 id="_44"></h3>
+<blockquote>
+<h3 id="setlore"><strong>SetLore</strong></h3>
+<p>Sets the lore text for an item. For multiple lines, quotation marks <code>""</code> are required in lieu of apostraphies <code>''</code>.</p>
+<p>Syntax:</p>
+<p><code>- 'SetLore: &lt;user-defined lore text&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'SetLore: This item is locked.'</code></p>
+<p><code>- "SetLore: This item is locked&amp;r\nMessage an Admin if this is an error."</code></p>
+</blockquote>
+<h3 id="_45"></h3>
+<blockquote>
+<h3 id="setnbt-obsolete"><strong>SetNBT</strong> <em>(obsolete)</em></h3>
+<p>Sets NBT (Named Binary Tag) data for an entity or block.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_46"></h3>
+<blockquote>
+<h3 id="settype"><strong>SetType</strong></h3>
+<p>Sets the slot item type of an entity or block.</p>
+<p>Syntax:</p>
+<p><code>- 'SetType: &lt;entity or block&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'SetType: grass_block'</code></p>
+</blockquote>
+</blockquote>
+<h3 id="_47"></h3>
+<blockquote>
+<h2 id="permission-management"><strong>Permission Management</strong></h2>
+<blockquote>
+<h3 id="haspermission-or-permission"><strong>HasPermission</strong> or <strong>Permission</strong></h3>
+<p>Checks if a player has a specific permission.</p>
+<p>Syntax:</p>
+<p><code>- 'HasPermission: &lt;permission node&gt;'</code> OR <code>- 'Permission: &lt;permission node&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'HasPermission: essentials.home'</code> OR <code>- 'Permission: essentials.home'</code></p>
+</blockquote>
+<h3 id="_48"></h3>
+<blockquote>
+<h3 id="addpermission"><strong>AddPermission</strong></h3>
+<p>Grants a player a specific permission.</p>
+<p>Syntax:</p>
+<p><code>- 'AddPermission: &lt;permission node&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'AddPermission: essentials.home'</code></p>
+</blockquote>
+<h3 id="_49"></h3>
+<blockquote>
+<h3 id="removepermission"><strong>RemovePermission</strong></h3>
+<p>Removes a specific permission from a player.</p>
+<p>Syntax:</p>
+<p><code>- 'RemovePermission: &lt;permission node&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'RemovePermission: essentials.home'</code></p>
+</blockquote>
+<h3 id="_50"></h3>
+</blockquote>
+<h3 id="_51"></h3>
+<blockquote>
+<h2 id="game-mechanics"><strong>Game Mechanics</strong></h2>
+<blockquote>
+<h3 id="condition"><strong>Condition</strong></h3>
+<p>Evaluates a specified condition and returns a boolean result.</p>
+<p>Syntax:</p>
+<p><code>- 'Condition: &lt;numeral value or placeholder&gt; &lt;expressions: ==, &lt;=, &gt;=&gt; &lt;numeral value or placeholder&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'Condition: %essentials_ping% &gt;= 30'</code></p>
+<p><code>- 'Condition: %value% == %acceptable_value%'</code></p>
+</blockquote>
+<h3 id="_52"></h3>
+<blockquote>
+<h3 id="particle"><strong>Particle</strong></h3>
+<p>Generates particle effects at a specified location.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_53"></h3>
+<blockquote>
+<h3 id="resetframe"><strong>ResetFrame</strong></h3>
+<p>Resets the frame counter.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_54"></h3>
+<blockquote>
+<h3 id="resettick"><strong>ResetTick</strong></h3>
+<p>Resets the tick counter.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_55"></h3>
+<blockquote>
+<h3 id="send"><strong>Send</strong></h3>
+<p>Sends a message or data to a specified server.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_56"></h3>
+<blockquote>
+<h3 id="sound"><strong>Sound</strong></h3>
+<p>Plays a sound at a specified location in the game world. Available compatible minecraft sound IDs can be found <a href="https://helpch.at/docs/1.21.1/org/bukkit/Sound.html">here</a>.</p>
+<p>Syntax:</p>
+<p><code>- 'Sound: &lt;valid minecraft sound ID&gt;,&lt;volume&gt;,&lt;pitch&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'Sound: ENTITY_PLAYER_LEVELUP,1.0,2.0'</code></p>
+</blockquote>
+<h3 id="_57"></h3>
+</blockquote>
+<h3 id="_58"></h3>
+<blockquote>
+<h2 id="economy-functions"><strong>Economy Functions</strong></h2>
+<blockquote>
+<h3 id="moneybalance"><strong>MoneyBalance</strong></h3>
+<p>Retrieves the current balance of in-game currency for a player.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_59"></h3>
+<blockquote>
+<h3 id="moneydeposit"><strong>MoneyDeposit</strong></h3>
+<p>Deposits a specified amount of in-game currency into a player's balance.</p>
+<p>Syntax:</p>
+<p><code>- 'MoneyDeposit: &lt;currency&gt;,&lt;amount&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'MoneyDeposit: money,%cosmetic-price%'</code></p>
+</blockquote>
+<h3 id="_60"></h3>
+<blockquote>
+<h3 id="moneywithdraw"><strong>MoneyWithdraw</strong></h3>
+<p>Withdraws a specified amount of in-game currency from a player's balance.</p>
+<p>Syntax:</p>
+<p><code>- '&lt;currency&gt;,&lt;amount&gt;'</code></p>
+<p>Example:</p>
+<p><code>- 'money,%cosmetic-price%'</code></p>
+</blockquote>
+<h3 id="_61"></h3>
+</blockquote>
+<h3 id="_62"></h3>
+<blockquote>
+<h2 id="miscellaneous"><strong>Miscellaneous</strong></h2>
+<blockquote>
+<h3 id="random"><strong>Random</strong></h3>
+<p>Generates a random number within a specified range.</p>
+<p>Syntax:</p>
+<p><code>- ''</code></p>
+<p>Example:</p>
+<p><code>- ''</code></p>
+</blockquote>
+<h3 id="_63"></h3>
+</blockquote></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
